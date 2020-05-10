@@ -1,5 +1,7 @@
 package edu.muzhe.duke.leetcode;
 
+import edu.muzhe.duke.leetcode.base.ListNode;
+
 /**
  * @author muzhe-wang on 2020/5/10.
  */
@@ -36,15 +38,5 @@ public class DeleteNode237 {
         //由于前面做了很多假设，node一定是中间节点。所以只要将后面一个节点移动到当前节点中。然后删除掉后面的节点
         node.val = node.next.val;
         node.next = node.next.next;
-    }
-}
-
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
     }
 }
