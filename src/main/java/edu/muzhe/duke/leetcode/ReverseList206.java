@@ -13,19 +13,28 @@ public class ReverseList206 {
      */
     public ListNode reverseList(ListNode head) {
 
-        if (head == null) {
-            return head;
-        }
-
         ListNode newHead = null;
-        ListNode p = head;
-        while (p != null) {
-            ListNode pNext = p.next;
-            p.next = newHead;
-            newHead = p;
-            p = pNext;
+        return transNode(newHead, head);
+
+    }
+
+    /**
+     * 将head中的所有的元素，使用头插法的方式插入到newHead的前面
+     *
+     * @param newHead
+     * @param head
+     */
+    private ListNode transNode(ListNode newHead, ListNode head) {
+
+        if (head == null) {
+            return newHead;
         }
 
-        return newHead;
+        ListNode headNext = head.next;
+        head.next = newHead;
+        newHead = head;
+
+        return transNode(newHead, headNext);
+
     }
 }
