@@ -23,22 +23,12 @@ public class ProductExceptSelf238 {
             }
         }
 
-        int lastValue = 1;
-
-        for (int i = 0; i < nums.length; i++) {
-            if (i == 0) {
-                lastValue = nums[i];
-                nums[i] = 1;
-            } else {
-                int tempResult = nums[i - 1] * lastValue;
-                lastValue = nums[i];
-                nums[i] = tempResult;
-            }
-        }
-
+        int k = 1;
         for (int i = 0; i < result.length; i++) {
-            result[i] = result[i] * nums[i];
+            result[i] *= k;
+            k *= nums[i];
         }
+
         return result;
 
     }
