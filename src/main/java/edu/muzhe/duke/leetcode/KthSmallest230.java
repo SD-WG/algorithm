@@ -2,6 +2,7 @@ package edu.muzhe.duke.leetcode;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author muzhe-wang on 2020/5/16.
@@ -18,30 +19,29 @@ public class KthSmallest230 {
      */
     public int kthSmallest(TreeNode root, int k) {
 
-        //如何递归的访问 一棵二叉树
-        List<Integer> result = new ArrayList<>();
-        recursionAccessTree(root, k, result);
-        return result.get(k - 1);
+        //第k小的数值 ，这里使用非递归先序中序遍历 左，中，右
 
-    }
+        Stack<TreeNode> stack = new Stack<TreeNode>();
 
-    /**
-     * 左，中右
-     *
-     * @param root
-     * @param k
-     * @param result
-     */
-    private void recursionAccessTree(TreeNode root, int k, List<Integer> result) {
+        while (root != null || !stack.isEmpty()) {
+            //找出第K大的数值
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            } else {
 
-        if (root == null || result.size() >= k) {
-            return;
+                root = stack.pop();
+                k--;
+                if (k == 0) {
+                    return root.val;
+                }
+                root = root.right;
+            }
+
         }
-
-        recursionAccessTree(root.left, k, result);
-        result.add(root.val);
-        recursionAccessTree(root.right, k, result);
+        return -1;
 
     }
+
 
 }
