@@ -1,5 +1,7 @@
 package edu.muzhe.duke.leetcode;
 
+import edu.muzhe.duke.leetcode.qq50.KthSmallest230;
+import edu.muzhe.duke.leetcode.qq50.TreeNode;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

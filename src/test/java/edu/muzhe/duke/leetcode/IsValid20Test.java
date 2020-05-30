@@ -1,5 +1,6 @@
 package edu.muzhe.duke.leetcode;
 
+import edu.muzhe.duke.leetcode.qq50.IsValid20;
 import org.junit.Assert;
 import org.junit.Test;
 
