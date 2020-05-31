@@ -1,5 +1,7 @@
 package edu.muzhe.duke.leetcode.tree;
 
+import java.util.Stack;
+
 /**
  * @author muzhe-wang on 2020/5/31.
  */
@@ -13,18 +15,28 @@ public class RangeSumBST938 {
      * @param R
      * @return
      */
-    int result = 0;
 
     public int rangeSumBST(TreeNode root, int L, int R) {
 
         if (root == null) {
-            return result;
+            return 0;
         }
-        rangeSumBST(root.left, L, R);
-        if (root.val >= L && root.val <= R) {
-            result += root.val;
+
+        int result = 0;
+        Stack<TreeNode> stack = new Stack<>();
+        while (!stack.isEmpty() || root != null) {
+
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            } else {
+                root = stack.pop();
+                if (root.val >= L && root.val <= R) {
+                    result += root.val;
+                }
+                root = root.right;
+            }
         }
-        rangeSumBST(root.right, L, R);
         return result;
     }
 
