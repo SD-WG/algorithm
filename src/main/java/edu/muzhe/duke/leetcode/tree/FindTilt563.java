@@ -14,6 +14,7 @@ public class FindTilt563 {
 
     public int findTilt(TreeNode root) {
 
+        //todo 这个题可以使用自底向上实现
         //左右子树的和的差的绝对值就是坡度。然后将所有的坡度相加
         if (root == null) {
             return 0;
