@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
+ * 这个类用来帮助生成一个本地的Client代理。
  * @author muzhe-wang on 2020/6/4.
  */
 public class TreeUtil {
@@ -20,11 +21,10 @@ public class TreeUtil {
         if (root == null) {
             return Collections.EMPTY_LIST;
         }
-        List<Integer> result = new ArrayList<>();
 
+        List<Integer> result = new ArrayList<>();
         preTraversal(root, result);
         return result;
-
     }
 
     /**
