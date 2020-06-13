@@ -53,7 +53,6 @@ public class IsCousins993 {
             yParent = parent;
             yHeight = height;
         }
-
         dfs(root.left, height + 1, root);
         dfs(root.right, height + 1, root);
     }
