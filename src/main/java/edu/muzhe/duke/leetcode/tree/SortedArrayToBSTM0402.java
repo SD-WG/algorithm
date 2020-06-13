@@ -32,6 +32,7 @@ public class SortedArrayToBSTM0402 {
         if (left > righ) {
             return null;
         }
+        //这里将会确定左子树为空，还是右子树为空的情况
         int rootRank = left + (righ - left) / 2;
         TreeNode root = new TreeNode(nums[rootRank]);
         root.left = sortedArrayToBst(nums, left, rootRank - 1);
